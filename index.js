@@ -16,7 +16,9 @@ function myFunction() {
 myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
-
+/*
+ * nestedFunction can access the variable internal because of closures. nestedFunction is a child function of myFunction and therefore has access to all of its variables.
+ * /
 
 
 
@@ -28,10 +30,15 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
+function summation(number) {
+  let total = 0;
+  for(let i = 1; i <= number; i++){
+    total += i;
   }
+  return total;
+  }
+  
+ 
  
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
@@ -56,11 +63,9 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
   
-
+  
+    
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
   The zoo needs a list of all their animal's names converted to lower case. 
   Using lowerCaseNames use .map() to create a new array of strings with the animal's names in lowercase and return the new array. 
@@ -134,6 +139,9 @@ function greeting(/*Your Code Here */){
   
 // 🦁💪 Stretch: If you haven't already, convert your array method callbacks into arrow functions - make sure you comment out this section before you submit your work 🦁💪
  
+function animalNames(){
+
+}
 
 
 
@@ -143,9 +151,14 @@ function greeting(/*Your Code Here */){
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker(/*Your Code Here */){
-  /*Your Code Here */
+function CuboidMaker(obj){
+    this.length = obj.length;
+    this.width =  obj.width;
+    this.width =  obj.height;
 }
+
+
+
 
 
 /* 🐴🐴🐴 Step 2: Volume Method 🐴🐴🐴
@@ -153,7 +166,9 @@ function CuboidMaker(/*Your Code Here */){
   Formula for cuboid volume: length * width * height   */
 
 
-
+  CuboidMaker.prototype.volume = function(){
+    return `${this.length} * ${this.width} * ${this.height}`;
+  }
 
 
 /* 🐴🐴🐴 Step 3: Surface Area Method 🐴🐴🐴
@@ -162,14 +177,20 @@ function CuboidMaker(/*Your Code Here */){
   2 * (length * width + length * height + width * height)  */
 
 
-
+CuboidMaker.prototype.surfaceArea = function(){
+  return ` 2 * (${this.length} ${this.width} ${this.length} ${this.height} ${this.width} ${this.height});`
+}
 
 
 /* 🐴🐴🐴 Step 4: Create a new object that uses CuboidMaker 🐴🐴🐴
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
 
-
+const cuboid = new CuboidMaker({
+  length: 4,
+  width: 5,
+  height: 5
+})
 
 
 
